@@ -1,0 +1,14 @@
+books
+sci-fi
+reading
+math
+analysis
+algebra
+topology
+rationality
+nature
+trees
+hiking
+biking
+procrastination
+
