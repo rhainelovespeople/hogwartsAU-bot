@@ -5,5 +5,3 @@ selectively-sensitive
 meticulous
 calm
 gentle
-
-
