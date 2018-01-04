@@ -1,0 +1,12 @@
+latte
+moccha
+americano
+black
+white coffee
+flat white
+capuccino
+macchiato
+espresso
+double espresso
+wingardium-leviosso
+lumosso 

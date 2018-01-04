@@ -1,5 +1,6 @@
 import tweepy
 from util import *
+import random
 
 #for prof
 #graded [student]
@@ -39,13 +40,28 @@ def armyName():
     return '%s became a General of a Quirrel army. They\'re thinking of naming it "%s %s".'\
         % (student.name, adjective, noun)
 
+def newCoffeeSale():
+    flavourArray = []
+    for _ in range(randChoice([1,2], [2,1])):
+        flavourArray.append(randChoice(coffee['modifiers']))
+    for _ in range(randChoice([1,2], [3,1])):
+        flavourArray.append(randChoice(coffee['endings']))
+    flavourArray.append(randChoice(coffee['types']))
+    
+    #shape, scale
+    #the shape controls how skewed it is: larger -> more centered, smaller -> more skewed, mode closer to 0
+    sales = int(round(random.gammavariate(2,2)))
+    
+    flavour = ' '.join(flavourArray)
+    salesPlural = 'sale' if sales==1 else 'sales'
 
-
+    return 'Ru introduced a new coffee flavour: "%s". It made %d %s!' % (flavour,sales,salesPlural)
+    
 loadStuff()
 i = 0
 while i<5:
     try:
-        f = randChoice([armyName]) #[armyName, divination, profGraded, wallWriting, armyWin])
+        f = randChoice([newCoffeeSale]) #[armyName, divination, profGraded, wallWriting, armyWin])
         print(f())
         i+=1
     except Exception as e:

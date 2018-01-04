@@ -1,5 +1,16 @@
 import random
 
+########################################
+## GLOBALS
+locations = []
+coffee = {
+    'endings': [], 
+    'modifiers': [],
+    'types': [],
+    'menu': []
+}
+########################################
+
 def randChoice(choices, weights=None):
     if weights==None:
         return random.choice(choices)
@@ -27,12 +38,6 @@ class Character:
             return self.extras[keyName]
         else:
             raise Exception("No such extra for %s" % self.name)
-        
-    """def setBeliefs(self, beliefs):
-        self.beliefs = beliefs
-    def setPowers(self, powers):
-        self.powers = powers"""
-
         
 
 # string -> Character
@@ -69,19 +74,24 @@ def fillOptions(phrase):
     return phrase[0].format(*fillWith)
 
 
-
-locations = []
-#all files should end in a newline
 def loadStuff():
+    # locations
     with open('locations.txt') as f:
         for line in f:
             locations.append(line[:-1]) # removes last character (newline)
+    # character extras
     for name in ['Marc', 'Ru', 'Sasha']:
         student = searchByName(name)
         for extra in student.extras:    #['beliefs','powers','adjectives','nouns']:
             with open('%s%s.txt' % (extra, name)) as f:
                 for line in f:
                     student.addExtra(extra, line[:-1])
+    # coffee things
+    for part in coffee:
+        with open('coffee/coffee%s.txt' % (part)) as f:
+            for line in f:
+                coffee[part].append(line[:-1])
+            
                     
 divinations = [ ("{} will die a horrible death", ['name:Student']),
                 ("{} and {} will marry and then die", ['name:Student', 'name:Student']),

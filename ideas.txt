@@ -6,4 +6,36 @@ CONTENT THINGS:
 *add Sasha
 *add Leo
 *add Luke
-* add alcohol randomly
+*add alcohol randomly
+
+*house words
+*give characters house
+*sorting phrase: hat told them
+*favorite coffee for characters (continuity) (first students, then professors)
+
+COFFEE THINGS:
+*day event of everyone trying coffee (continuity)
+
+*counting sales, events depending on sales count
+**coffee names
+**getting the Hufflepuff girl ~10
+***makes sales bigger (tens)
+**hiring the Slytherin girl ~100
+***successful/unsuccessful PR campaigns (affects the sales)
+**Fred and George noticing ~200
+***makes sales bigger (30s)
+**Professors noticing ~300
+**sometimes announcing total sales count
+
+*someone tweets at the bot, we respond with coffee they got from a menu
+*menu of coffees
+*initializations:
+**'tried a new flavor today, sold X' 'here's a new flavor+cost!'
+*'old flavour sold X'
+MARC STARTS A THING
+*book club? book store?
+**very random places to hold a meeting
+**discussion of Controversial(tm) magical issues
+
+
+HOGWARTS MAGAZINE
