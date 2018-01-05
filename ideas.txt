@@ -1,5 +1,5 @@
 CODE THINGS:
-*
+*Backup text files
 
 CONTENT THINGS:
 *events with continuity
@@ -12,6 +12,7 @@ CONTENT THINGS:
 *give characters house
 *sorting phrase: hat told them
 *favorite coffee for characters (continuity) (first students, then professors)
+*special coffee flavors based on main character words
 
 COFFEE THINGS:
 *day event of everyone trying coffee (continuity)

@@ -2,6 +2,12 @@ import tweepy
 from util import *
 import random
 
+from secrets import *
+
+"""auth = tweepy.OAuthHandler(C_KEY, C_SECRET)  
+auth.set_access_token(A_TOKEN, A_TOKEN_SECRET)  
+api = tweepy.API(auth)"""
+
 #for prof
 #graded [student]
 #it said 'student thingy'
@@ -50,19 +56,57 @@ def newCoffeeSale():
     
     #shape, scale
     #the shape controls how skewed it is: larger -> more centered, smaller -> more skewed, mode closer to 0
-    sales = int(round(random.gammavariate(2,2)))
+    sales = int(round(random.gammavariate(coffeeShape,coffeeScale)))
     
     flavour = ' '.join(flavourArray)
     salesPlural = 'sale' if sales==1 else 'sales'
 
-    return 'Ru introduced a new coffee flavour: "%s". It made %d %s!' % (flavour,sales,salesPlural)
+    if searchEventsByName('hufflepuffGirl').triggerState == 'yes':
+        madeBy = coffeeShopAbbrev
+    else:
+        madeBy = 'Ru'
+        
+    c = Coffee(flavour,sales,madeBy)
+    c.updateSales()
     
-loadStuff()
-i = 0
-while i<5:
-    try:
-        f = randChoice([newCoffeeSale]) #[armyName, divination, profGraded, wallWriting, armyWin])
-        print(f())
-        i+=1
-    except Exception as e:
-        i-=1
+    return '%s introduced a new coffee flavour: "%s". It made %d %s!' % (
+        madeBy,flavour,sales,salesPlural)
+
+def characterThemedCoffee():
+    character = randChoice(selectRole(['Main']))
+    adjective = randChoice(character.getExtra('adjectives'))
+    flavourArray = [adjective]
+    for _ in range(randChoice([0,1], [1,1])):
+        flavourArray.append(randChoice(coffee['modifiers']))
+    for _ in range(randChoice([1,2], [3,1])):
+        flavourArray.append(randChoice(coffee['endings']))
+    flavourArray.append(randChoice(coffee['types']))
+
+    flavour = ' '.join(flavourArray)
+    c = Coffee(flavour, 1, character.name)
+
+    return '%s made their own flavour of coffee at %s: "%s"!' % (
+        character.name, coffeeShopAbbrev, flavour)
+
+def hufflepuffGirlEvent():
+    coffeeScale = 4.0
+    with open('coffee/gammadistribution.txt','w') as f:
+        f.write('%f\n%f' % (coffeeShape, coffeeScale))
+    return 'Gillian has joined Ru to create the first Hogwarts coffee chain\
+: "%s"!' % coffeeShopName
+
+if __name__ == "__main__":
+    loadStuff()
+    searchEventsByName("hufflepuffGirl").setEffects(hufflepuffGirlEvent)
+    checkEvents()
+
+    i = 0
+    while i<5:
+        try:
+            f = characterThemedCoffee
+            #f = randChoice([newCoffeeSale, characterThemedCoffee, armyName, divination, profGraded, wallWriting, armyWin])
+            print(f())
+            i+=1
+        except Exception as e:
+            pass
+        checkEvents()

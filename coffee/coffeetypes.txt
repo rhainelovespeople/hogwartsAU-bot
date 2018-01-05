@@ -8,5 +8,7 @@ capuccino
 macchiato
 espresso
 double espresso
+triple espresso
+quadruple espresso
 wingardium-leviosso
-lumosso 
+lumosso
