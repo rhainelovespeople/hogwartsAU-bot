@@ -6,7 +6,7 @@ from ruamel.yaml.util import load_yaml_guess_indent
 ## GLOBALS
 locations = []
 coffee = {
-    'endings': [], 
+    'endings': [],
     'modifiers': [],
     'types': [],
 }
@@ -32,6 +32,13 @@ def randChoice(choices, weights=None):
         upto += w
     assert False, "Shouldn't get here"
 
+# excpetion for when a character doesn't have the required extra
+class NoExtraError(Exception):
+    def __init__(self, value):
+        self.value = value
+    def __str__(self):
+        return repr(self.value) # makes the value a string
+
 class Character:
     def __init__(self, roles, name, whichExtras=[]):
         self.name = name
@@ -46,8 +53,8 @@ class Character:
         if keyName in self.extras:
             return self.extras[keyName]
         else:
-            raise Exception("No such extra for %s" % self.name)
-        
+            raise NoExtraError("No such extra for %s" % self.name)
+
 class Coffee:
     def __init__(self, name, sales=0, creatorName=None, price=None):
         self.name = name
@@ -67,7 +74,7 @@ class Coffee:
         with open('coffee/coffeemenu.txt','a') as f:
             coffeeMenu.append(self)
             f.write(str(self)+'\n')
-    
+
 class Event:
     def __init__(self, name, triggerSales, triggerState='no'):
         self.name = name
@@ -76,10 +83,10 @@ class Event:
         self.effects = None
     def __str__(self):
         return '%s;%d;%s;' %(self.name,self.triggerSales,self.triggerState)
-    
+
     def setEffects(self, effects):
         self.effects = effects
-        
+
 def checkEvents():
     for e in events:
         if e.triggerState=='no' \
@@ -101,7 +108,7 @@ def searchEventsByName(name):
     for e in events:
         if e.name==name:
             return e
-        
+
 # [String] -> [Character]
 def selectRole(requiredRoles):
     return list(filter(lambda c: all([role in c.roles for role in requiredRoles]),
@@ -127,8 +134,8 @@ def fillOptions(phrase):
         elif a[0:5] == 'name:':
             role = a[5:]
             fillWith.append(randChoice( [c.name for c in selectRole([role])] ))
-        
-    return phrase[0].format(*fillWith)        
+
+    return phrase[0].format(*fillWith)
 
 def reset():
     open('coffee/coffeemenu.txt', 'w').close()
@@ -171,7 +178,7 @@ def loadStuff():
                 price = None
             else:
                 price = array[3]
-                
+
             c = Coffee(array[0],int(array[1]),creatorName,price)
             coffeeMenu.append(c)
     with open('coffee/gammadistribution.txt') as f:
@@ -182,7 +189,7 @@ def loadStuff():
         for line in f:
             array = line.split(';')
             events.append(Event(array[0], int(array[1]), array[2]))
-             
+
 divinations = [ ("{} will die a horrible death", ['name:Student']),
                 ("{} and {} will marry and then die", ['name:Student', 'name:Student']),
                 ("Nobody will pass Professor {}'s quiz this year", ['name:Professor']),
@@ -191,7 +198,7 @@ divinations = [ ("{} will die a horrible death", ['name:Student']),
                 ("Careful with the teacups today {} dear", ['name:Student']),
                 ("The grim! THE GRIM! Oh wait no it's just {}", ['name'])
               ]
-    
+
 characters = [Character(['Main', 'Student'], 'Ru', ['beliefs','powers','adjectives','nouns']),
               Character(['Main', 'Student'], 'Marc', ['beliefs','powers','adjectives','nouns']),
               Character(['Main', 'Student'], 'Sasha', ['beliefs','powers']),
