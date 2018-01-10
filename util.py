@@ -65,6 +65,7 @@ class Coffee:
                         f.write(str(c)+'\n')
                 return
         with open('coffee/coffeemenu.txt','a') as f:
+            coffeeMenu.append(self)
             f.write(str(self)+'\n')
     
 class Event:
@@ -128,6 +129,19 @@ def fillOptions(phrase):
             fillWith.append(randChoice( [c.name for c in selectRole([role])] ))
         
     return phrase[0].format(*fillWith)        
+
+def reset():
+    open('coffee/coffeemenu.txt', 'w').close()
+    with open('coffee/gammadistribution.txt', 'w') as f:
+        f.write('%f\n%f' % (coffeeShape, coffeeScale))
+    with open('events.txt', 'r') as f:
+        newFile = ""
+        for line in f:
+            array = line.split(';')
+            array[2] = 'no'
+            newFile += ';'.join(array)
+    with open('events.txt', 'w') as f:
+        f.write(newFile)
 
 def loadStuff():
     # locations

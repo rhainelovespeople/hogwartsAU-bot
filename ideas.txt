@@ -1,5 +1,9 @@
-CODE THINGS:
+TECHNICAL THINGS:
 *Backup text files
+*see how much material we have/need
+*haskell?
+*split long tweets?
+*weighted chance for various phrases
 
 CONTENT THINGS:
 *events with continuity
@@ -8,19 +12,21 @@ CONTENT THINGS:
 *add Luke
 *add alcohol randomly
 
+*tarot!
+
 *house words
 *give characters house
 *sorting phrase: hat told them
 *favorite coffee for characters (continuity) (first students, then professors)
-*special coffee flavors based on main character words
+v*special coffee flavors based on main character words
 
 COFFEE THINGS:
 *day event of everyone trying coffee (continuity)
 
-*counting sales, events depending on sales count
-**coffee names
-**getting the Hufflepuff girl ~10
-***makes sales bigger (tens)
+v*counting sales, events depending on sales count
+v**coffee names
+v**getting the Hufflepuff girl ~10
+v***makes sales bigger (tens)
 **hiring the Slytherin girl ~100
 ***successful/unsuccessful PR campaigns (affects the sales)
 **Fred and George noticing ~200
@@ -29,14 +35,24 @@ COFFEE THINGS:
 **sometimes announcing total sales count
 
 *someone tweets at the bot, we respond with coffee they got from a menu
-*menu of coffees
+v*menu of coffees
 *initializations:
 **'tried a new flavor today, sold X' 'here's a new flavor+cost!'
 *'old flavour sold X'
+
 MARC STARTS A THING
-*book club? book store?
+*book club
 **very random places to hold a meeting
-**discussion of Controversial(tm) magical issues
+**magical fiction? (YA lit) (tropes?)
+**at today's bookclub meeting we're discussing [title] involving [trope]
+**character likes [type] of book (or specific title)
+**fav ships??
+**muggle books - wizarding reactions?
+**after enough coffee popularity: phrase: [character] spotted reading [title] at Quirky DADDY drinking [coffee]
+*book list (of books read by the book club)
+
+*day event: promote some book, get lots of characters reactions
 
 
 HOGWARTS MAGAZINE
+**discussion of Controversial(tm) magical issues

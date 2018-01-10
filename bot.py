@@ -84,6 +84,7 @@ def characterThemedCoffee():
 
     flavour = ' '.join(flavourArray)
     c = Coffee(flavour, 1, character.name)
+    c.updateSales()
 
     return '%s made their own flavour of coffee at %s: "%s"!' % (
         character.name, coffeeShopAbbrev, flavour)
@@ -96,6 +97,7 @@ def hufflepuffGirlEvent():
 : "%s"!' % coffeeShopName
 
 if __name__ == "__main__":
+    reset()
     loadStuff()
     searchEventsByName("hufflepuffGirl").setEffects(hufflepuffGirlEvent)
     checkEvents()
@@ -103,10 +105,11 @@ if __name__ == "__main__":
     i = 0
     while i<5:
         try:
-            f = characterThemedCoffee
+            f = newCoffeeSale
             #f = randChoice([newCoffeeSale, characterThemedCoffee, armyName, divination, profGraded, wallWriting, armyWin])
             print(f())
             i+=1
         except Exception as e:
             pass
         checkEvents()
+    checkEvents()
