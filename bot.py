@@ -4,8 +4,8 @@ import random
 
 from secrets import *
 
-"""auth = tweepy.OAuthHandler(C_KEY, C_SECRET)  
-auth.set_access_token(A_TOKEN, A_TOKEN_SECRET)  
+"""auth = tweepy.OAuthHandler(C_KEY, C_SECRET)
+auth.set_access_token(A_TOKEN, A_TOKEN_SECRET)
 api = tweepy.API(auth)"""
 
 #for prof
@@ -20,7 +20,7 @@ def profGraded():
                             [-100,-50,-20,-10,-5,-1,-0.1,-0.001,0.29, 1, 5,10,30,1000]),
                             [   2,  3, 10, 20,30,35,  10,     5,  10,35,30,20, 5,   1])
     return "%s was grading %s's homework. It said \"%s\", so professor %s." % (
-        professor.name,student.name,belief,points) 
+        professor.name,student.name,belief,points)
 
 def wallWriting():
     student = randChoice(selectRole(['Main', 'Student']))
@@ -28,7 +28,7 @@ def wallWriting():
     location = randChoice(locations)
     return '%s was caught by %s halfway through writing "%s" in big red letters.'\
         % (student.name, location, belief)
-        
+
 def divination():
     return 'During Divination, Trelawney said, "%s".' % (
         fillOptions(randChoice(divinations)))
@@ -53,11 +53,11 @@ def newCoffeeSale():
     for _ in range(randChoice([1,2], [3,1])):
         flavourArray.append(randChoice(coffee['endings']))
     flavourArray.append(randChoice(coffee['types']))
-    
+
     #shape, scale
     #the shape controls how skewed it is: larger -> more centered, smaller -> more skewed, mode closer to 0
     sales = int(round(random.gammavariate(coffeeShape,coffeeScale)))
-    
+
     flavour = ' '.join(flavourArray)
     salesPlural = 'sale' if sales==1 else 'sales'
 
@@ -65,10 +65,10 @@ def newCoffeeSale():
         madeBy = coffeeShopAbbrev
     else:
         madeBy = 'Ru'
-        
+
     c = Coffee(flavour,sales,madeBy)
     c.updateSales()
-    
+
     return '%s introduced a new coffee flavour: "%s". It made %d %s!' % (
         madeBy,flavour,sales,salesPlural)
 
