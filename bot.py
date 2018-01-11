@@ -66,11 +66,27 @@ def newCoffeeSale():
     else:
         madeBy = 'Ru'
 
-    c = Coffee(flavour,sales,madeBy)
-    c.updateSales()
+    c = Coffee(flavour,0,madeBy)
+    coffeeMenu.append(c)
+    c.updateSales(sales)
 
     return '%s introduced a new coffee flavour: "%s". It made %d %s!' % (
         madeBy,flavour,sales,salesPlural)
+
+def oldCoffeeSale():
+    c = randChoice(coffeeMenu)
+
+    sales = int(round(random.gammavariate(coffeeShape,coffeeScale)))
+
+    salesPlural = 'sale' if sales==1 else 'sales'
+
+    flavour = c.name
+    creator = c.creatorName
+
+    c.updateSales(sales)
+
+    return "The %s by %s made %d %s this week!" % (
+        flavour,creator,sales,salesPlural)
 
 def characterThemedCoffee():
     character = randChoice(selectRole(['Main']))
@@ -83,8 +99,8 @@ def characterThemedCoffee():
     flavourArray.append(randChoice(coffee['types']))
 
     flavour = ' '.join(flavourArray)
-    c = Coffee(flavour, 1, character.name)
-    c.updateSales()
+    c = Coffee(flavour, 0, character.name)
+    c.updateSales(1)
 
     return '%s made their own flavour of coffee at %s: "%s"!' % (
         character.name, coffeeShopAbbrev, flavour)
@@ -105,12 +121,18 @@ if __name__ == "__main__":
     i = 0
     while i<5:
         try:
-            f = newCoffeeSale
-            # f = randChoice([newCoffeeSale, characterThemedCoffee, armyName, divination, profGraded, wallWriting, armyWin])
+            f = oldCoffeeSale
+            """f = randChoice([oldCoffeeSale,
+                            newCoffeeSale,
+                            characterThemedCoffee,
+                            armyName,
+                            divination,
+                            profGraded,
+                            wallWriting,
+                            armyWin]) """
             print(f())
             i+=1
         except NoExtraError as e:
-            print(e)
             pass
         checkEvents()
     checkEvents()

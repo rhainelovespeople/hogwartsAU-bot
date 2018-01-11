@@ -63,10 +63,10 @@ class Coffee:
         self.creatorName = creatorName # not necessarily a character
     def __str__(self):
         return '%s;%d;%s;%s;' %(self.name,self.sales,self.creatorName,self.price)
-    def updateSales(self):
+    def updateSales(self,sales):
         for i in range(len(coffeeMenu)):
             if self.name==coffeeMenu[i].name:
-                coffeeMenu[i].sales+=self.sales
+                coffeeMenu[i].sales+=sales
                 with open('coffee/coffeemenu.txt', 'w') as f:
                     for c in coffeeMenu:
                         f.write(str(c)+'\n')
