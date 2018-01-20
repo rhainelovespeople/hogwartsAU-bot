@@ -149,7 +149,7 @@ def loadStuff():
         for line in f:
             locations.append(line[:-1]) # removes last character (newline)
     # character extras
-    for name in ['Marc', 'Ru', 'Sasha']:
+    for name in ['Marc', 'Ru', 'Sasha', 'Leo']:
         student = searchByName(name)
         for extra in student.extras:    #['beliefs','powers','adjectives','nouns']:
             with open('characters/%s/%s%s.txt' % (name.lower(), extra, name)) as f:
@@ -186,17 +186,17 @@ def loadStuff():
 divinations = [ ("{} will die a horrible death", ['name:Student']),
                 ("{} and {} will marry and then die", ['name:Student', 'name:Student']),
                 ("Nobody will pass Professor {}'s quiz this year", ['name:Professor']),
-                ("{} will become the new Dark Lord", ['name']),
+                ("{} will become the new Dark Lord", ['name:Student']),
                 ("{} will get a Troll on the Transfiguration O.W.L.", ['name:Student']),
                 ("Careful with the teacups today {} dear", ['name:Student']),
-                ("The grim! THE GRIM! Oh wait no it's just {}", ['name'])
+                ("The grim! THE GRIM! Oh wait no it's just {}", ['name:Student'])
               ]
 
 characters = [Character(['Main', 'Student'], 'Ru', ['beliefs','powers','adjectives','nouns']),
               Character(['Main', 'Student'], 'Marc', ['beliefs','powers','adjectives','nouns']),
               Character(['Main', 'Student'], 'Sasha', ['beliefs','powers']),
-              Character(['Student'], 'Luke'),
-              Character(['Student'], 'Gillian')] # a Hufflepuff
+              Character(['Main', 'Student'], 'Leo', ['beliefs','adjectives','nouns']),
+              Character(['Student'], 'Luke')]
 characters += [Character(['Professor'], prof) for prof in [
         'Dumbledore','McGonagall','Flitwick','Quirrel','Snape','Sprout',
         'Lupin', 'Moody', 'Hagrid', 'Hooch']]

@@ -1,3 +1,6 @@
+FIX THIS PLEASE:
+*make points singular when only 1 point is given
+
 TECHNICAL THINGS:
 *Backup text files
 *see how much material we have/need
@@ -6,13 +9,14 @@ TECHNICAL THINGS:
 *weighted chance for various phrases
 
 CONTENT THINGS:
-*events with continuity
-*add Sasha
-*add Leo
+v*events with continuity
+v*add Sasha
+v*add Leo
 *add Luke
 *add alcohol randomly
-
+*weekly hair color change for Leo (continuity)
 *tarot!
+*reactions to Hagrid's lessons
 
 *house words
 *give characters house
@@ -40,7 +44,7 @@ v*menu of coffees
 **'tried a new flavor today, sold X' 'here's a new flavor+cost!'
 *'old flavour sold X'
 
-MARC STARTS A THING
+MARC STARTS A THING:
 *book club
 **very random places to hold a meeting
 **magical fiction? (YA lit) (tropes?)
@@ -54,5 +58,8 @@ MARC STARTS A THING
 *day event: promote some book, get lots of characters reactions
 
 
-HOGWARTS MAGAZINE
+HOGWARTS MAGAZINE:
 **discussion of Controversial(tm) magical issues
+
+CHARACTERS:
+*add preferred pronouns
