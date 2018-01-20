@@ -121,8 +121,18 @@ if __name__ == "__main__":
     i = 0
     while i<5:
         try:
+            f = oldCoffeeSale
+            """f = randChoice([oldCoffeeSale,
+                            newCoffeeSale,
+                            characterThemedCoffee,
+                            armyName,
+                            divination,
+                            profGraded,
+                            wallWriting,
+                            armyWin]) """
             print(f())
             i+=1
+        except NoExtraError as e:
             pass
         checkEvents()
     checkEvents()

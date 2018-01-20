@@ -32,6 +32,13 @@ def randChoice(choices, weights=None):
         upto += w
     assert False, "Shouldn't get here"
 
+# excpetion for when a character doesn't have the required extra
+class NoExtraError(Exception):
+    def __init__(self, value):
+        self.value = value
+    def __str__(self):
+        return repr(self.value) # makes the value a string
+
 class Character:
     def __init__(self, roles, name, whichExtras=[]):
         self.name = name
@@ -46,6 +53,7 @@ class Character:
         if keyName in self.extras:
             return self.extras[keyName]
         else:
+            raise NoExtraError("No such extra for %s" % self.name)
 
 class Coffee:
     def __init__(self, name, sales=0, creatorName=None, price=None):
