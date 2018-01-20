@@ -46,7 +46,6 @@ class Character:
         if keyName in self.extras:
             return self.extras[keyName]
         else:
-            raise Exception("No such extra for %s" % self.name)
 
 class Coffee:
     def __init__(self, name, sales=0, creatorName=None, price=None):

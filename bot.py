@@ -118,14 +118,11 @@ if __name__ == "__main__":
     searchEventsByName("hufflepuffGirl").setEffects(hufflepuffGirlEvent)
     checkEvents()
 
-
     i = 0
     while i<5:
         try:
-            f = randChoice([newCoffeeSale, characterThemedCoffee, armyName, divination, profGraded, wallWriting, armyWin])
             print(f())
             i+=1
-        except Exception as e:
             pass
         checkEvents()
     checkEvents()
